@@ -1,0 +1,30 @@
+{
+  "name": "svelte-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@sveltejs/vite-plugin-svelte": "^2.0.0",
+    "@tsconfig/svelte": "^3.0.0",
+    "node-sass": "^8.0.0",
+    "svelte": "^3.54.0",
+    "svelte-check": "^2.10.0",
+    "svelte-preprocess": "^5.0.0",
+    "svelte-uicons": "^0.0.7",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "rollup-plugin-svelte": "^7.1.0",
+    "svelte-navigator": "^3.2.2"
+  }
+}
