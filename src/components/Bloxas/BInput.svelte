@@ -1,13 +1,32 @@
 <script lang="ts">
+    import BIcon from "./BIcon.svelte";
+    import { createEventDispatcher } from 'svelte';
+
     enum inputType {
         text = 'text',
-        textarea = 'textarea'
+        textarea = 'textarea',
+        select = 'select',
+        date = 'date'
     }
-    import BIcon from "./BIcon.svelte";
+    interface OptionType {
+        name: String,
+        value: String
+    }
+
+    const dispatch = createEventDispatcher();
+
     export let icon :String = '';
     export let name :String;
     export let placeholder :String = '';
     export let type :inputType = inputType.text;
+    export let options :Array<OptionType> = [];
+    export let value :String = '';
+
+    function input() {
+        dispatch('input', {
+            value: value
+        })
+    }
 </script>
 
 <main class="global">
@@ -27,13 +46,36 @@
                 <input
                     class="final-element"
                     placeholder={placeholder}
+                    bind:value={value}
+                    on:input={input}
                 />
             {/if}
             {#if type === inputType.textarea}
                 <textarea
                     class="final-element"
                     placeholder={placeholder}
+                    bind:value={value}
                 ></textarea>
+            {/if}
+            {#if type === inputType.select}
+                <select
+                    class="final-element"
+                    bind:value={value}
+                >
+                    <option value="" disabled selected>
+                        {placeholder}
+                    </option>
+                    {#each options as option}
+                        <option value={option.value}>{option.name}</option>
+                    {/each}
+                </select>
+            {/if}
+            {#if type === inputType.date}
+                <input
+                    class="final-element"
+                    type="date"
+                    bind:value={value}
+                />
             {/if}
         </div>
     </div>
@@ -89,5 +131,10 @@
       }
     }
   }
+  textarea {
+    resize: none;
+  }
 
+  select {
+  }
 </style>

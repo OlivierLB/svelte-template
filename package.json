@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "rollup-plugin-svelte": "^7.1.0",
+    "svelte-i18n": "^3.6.0",
     "svelte-navigator": "^3.2.2"
   }
 }

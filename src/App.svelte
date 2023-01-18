@@ -1,13 +1,25 @@
 <script lang="ts">
-  import Header from "./components/Header.svelte";
-  import Router from "./router/Router.svelte";
+import Layout from "./layout/Layout.svelte";
+
+import {
+  register,
+  t,
+  init,
+  getLocaleFromNavigator,
+  isLoading,
+} from "svelte-i18n";
+
+register("fr", () => import("./lang/fr.json"));
+
+init({ initialLocale: getLocaleFromNavigator(), fallbackLocale: "fr" });
 </script>
 
 <main>
-  <div>
-    <Header />
-    <Router />
-  </div>
+  {#if $isLoading}
+    Please wait...
+  {:else}
+    <Layout />
+  {/if}
 </main>
 
 
@@ -19,8 +31,5 @@
     height: 100vh;
     background-color: $light;
     color: $dark;
-    div {
-      padding: $space-normal;
-    }
   }
 </style>

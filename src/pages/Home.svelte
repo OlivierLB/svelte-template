@@ -1,19 +1,19 @@
 <script lang="ts">
-    import { ChessIcon } from 'svelte-uicons'
+    import { _ } from 'svelte-i18n'
 </script>
 
 <main>
     <h1>
-        Template Svelte
+        {$_('text.home.name')}
     </h1>
     <h2>
-        Ce site est un template de developpement pour de futur projet en svelte
+        {$_('text.home.tagline')}
     </h2>
     <h3>
-        J'espere qu'il va servir
+        {$_('text.home.secret')}
     </h3>
     <p>
-        Je vais donc essayer de faire ça bien
+        {$_('text.home.good')}
     </p>
 </main>
 

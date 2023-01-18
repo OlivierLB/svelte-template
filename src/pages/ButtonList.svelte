@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { _ } from 'svelte-i18n'
     import BButton from "../components/Bloxas/BButton.svelte";
     import {onMount} from "svelte";
     let firstFocus :object;
@@ -12,20 +13,20 @@
     <h1 bind:this={firstFocus} >Liste des BTN disponibles</h1>
     <div class="btn-list">
         <BButton
-            value="Primary"
+            text={$_('button.primary')}
         />
         <BButton
             valid
-            value="Valide"
+            text={$_('button.validate')}
         />
         <BButton
             error
-            value="Error"
+            text={$_('button.error')}
             icon="ChessIcon"
         />
         <BButton
             cancel
-            value="Cancel"
+            text={$_('button.cancel')}
         />
     </div>
 </main>

@@ -1,0 +1,37 @@
+{
+  "header": {
+    "title": "Header du site",
+    "home": "Accueil",
+    "button": "Boutons",
+    "input": "Champs de saisie",
+    "store": "Mise en place du store"
+  },
+  "text": {
+    "home": {
+      "name": "Template Svelte",
+      "tagline": "Template de dev en Svelte",
+      "secret": "J'espère que ça va servir",
+      "good": "Je vais donc essayer de faire ça bien"
+    }
+  },
+  "button": {
+    "primary": "Bouton principal",
+    "validate": "Validation",
+    "error": "Erreur",
+    "cancel": "Annuler"
+  },
+  "input": {
+    "token": "Écrire une chaine de caractères",
+    "first": "Premier champ",
+    "second": "Second champ",
+    "third": "Troisième champ",
+    "fourth": "Quatrième champ",
+    "fifth": "Cinquième champ",
+    "sixth": "Sixième champ",
+    "placeholder": {
+      "third": "Pour le champ 3",
+      "fourth": "Pour le champ 4",
+      "fifth": "Pour le champ 5"
+    }
+  }
+}
