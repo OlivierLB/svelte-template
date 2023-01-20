@@ -4,7 +4,8 @@
     "home": "Accueil",
     "button": "Boutons",
     "input": "Champs de saisie",
-    "store": "Mise en place du store"
+    "store": "Mise en place du store",
+    "modal": "Gestion des modals"
   },
   "text": {
     "home": {

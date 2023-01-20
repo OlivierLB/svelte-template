@@ -12,3 +12,10 @@
   border: solid $border $color;
   gap: $space-small;
 }
+@mixin buttonFull ($color, $width) {
+  width: $width;
+  background-color: $color;
+  color: $dark;
+  border: unset;
+  border-radius: unset;
+}

@@ -3,34 +3,65 @@ h1 {
   margin: $space-big 0 $space-big 0;
   padding: unset;
   line-height: $line-title;
+  color: $secondary;
+  &.no-margin {
+    margin: unset;
+  }
 }
 h2 {
   font-size: $font-big;
   margin: $space-normal 0 $space-normal 0;
   padding: unset;
   line-height: $line-title;
+  color: $secondary;
+  &.no-margin {
+    margin: unset;
+  }
 }
 h3 {
   font-size: $font-small;
   margin: unset;
   padding: unset;
   line-height: $line-normal;
+  color: $dark;
 }
 p {
 font-size: $font-medium;
   margin: unset;
   padding: unset;
   line-height: $line-normal;
+  color: $dark;
+}
+
+:global(a) {
+  color: $primary;
+  text-decoration: unset;
+  cursor: pointer;
 }
 .button {
   @include button($primary);
+  &.full {
+    @include buttonFull($primary, 100%);
+  }
+
   &.valid {
     @include button($valid);
+    &.full {
+      @include buttonFull($valid, 100%);
+    }
   }
+
   &.error {
     @include button($error);
+    &.full {
+      @include buttonFull($error, 100%);
+    }
   }
+
   &.cancel {
     @include button($cancel);
+    &.full {
+      @include buttonFull($cancel, 100%);
+    }
   }
 }

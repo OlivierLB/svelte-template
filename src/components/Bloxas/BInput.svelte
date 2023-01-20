@@ -1,13 +1,8 @@
 <script lang="ts">
     import BIcon from "./BIcon.svelte";
     import { createEventDispatcher } from 'svelte';
+    import {inputType} from "../../utils/enums";
 
-    enum inputType {
-        text = 'text',
-        textarea = 'textarea',
-        select = 'select',
-        date = 'date'
-    }
     interface OptionType {
         name: String,
         value: String

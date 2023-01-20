@@ -1,0 +1,12 @@
+$durationSmall: .3s;
+$duration: .6s;
+$durationIntermediate: .75s;
+$durationLong: 1.2s;
+
+$repeatSmall: 1;
+$repeatInfinite: infinite;
+
+@keyframes gelatine {
+  from, to { transform: scale(1, 1); }
+  50% { transform: scale(1.05, 0.95); }
+}

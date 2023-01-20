@@ -1,22 +1,30 @@
 import { writable } from "svelte/store";
+import type {btnType, modalClasses} from "../utils/enums";
 
 const store = () => {
     const state = {
         type: '',
         title: '',
         customClass: '',
+        actions: [{}],
         isOpen: false
     }
 
-    const { subscribe, set, update } = writable(state);
+    const { subscribe, update } = writable(state);
 
     const methods = {
-        openModal (data: { type :string; title :string; customClass :string; }) {
+        openModal (data: {
+            type :string;
+            title :string;
+            customClass :modalClasses;
+            actions :Array<{ type :btnType, label :string, action :Function }>;
+        }) {
             update(state => ({
                 ...state,
                 type: data.type,
                 title: data.title,
                 customClass: data.customClass,
+                actions: data.actions ?? [],
                 isOpen: true
             }))
         },
@@ -26,6 +34,7 @@ const store = () => {
                 type: '',
                 title: '',
                 customClass: '',
+                actions: [],
                 isOpen: false
             }))
         }

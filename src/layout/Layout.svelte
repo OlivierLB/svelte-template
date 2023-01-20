@@ -9,7 +9,6 @@
     <div>
         <Header />
         <Router />
-        {JSON.stringify($ModalStore)}
         {#if $ModalStore.isOpen}
             <Modal />
         {/if}
