@@ -45,6 +45,7 @@
     >
       { $_('header.modal') }
     </a>
+    <Link to="service">{ $_('header.service') }</Link>
   </Router>
 </header>
 <style lang="scss">

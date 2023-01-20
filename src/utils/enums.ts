@@ -16,3 +16,7 @@ export enum modalClasses {
     big = 'big',
     invisible = 'invisible',
 }
+export enum methodTypes {
+    post = 'POST',
+    get = 'GET'
+}
