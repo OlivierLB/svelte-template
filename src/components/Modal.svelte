@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition';
+    import { fade, fly } from 'svelte/transition';
     import ModalStore from "../store/modal";
     import BCard from "./Bloxas/BCard.svelte";
     import BButton from "./Bloxas/BButton.svelte";
@@ -8,24 +8,34 @@
 
     const close = e => {
         if (e.target.id === 'modal-loader') {
-            ModalStore.closeModal()
+            closeModal()
         }
+    }
+
+    const closeModal = () => {
+        ModalStore.closeModal()
     }
 
     import ModalExample from "./Modal/ModalExample.svelte";
     const modalList = [
         {name: 'example', component: ModalExample}
     ]
+
+    let width
+    let height
 </script>
 
 <main>
     <section
         id="modal-loader"
         on:click={close}
-        in:fade
-        out:fade
+        in:fade={{duration: 300}}
+        out:fade={{duration: 300}}
+        bind:clientWidth={width}
+        bind:clientHeight={height}
     >
-        {#if $ModalStore.isOpen}
+        <p>{width} {height}</p>
+        {#if $ModalStore.isOpen && width > 380}
             <BCard
               title={$ModalStore.title}
               animate
@@ -51,13 +61,56 @@
                     {/each}
                 </div>
             </BCard>
+        {:else if $ModalStore.isOpen}
+            <div
+                transition:fly="{{ y: height, duration: 500 }}"
+                class="modal-loader-mobile"
+            >
+                <BButton
+                    icon="CrossIcon"
+                    error
+                    on:click={closeModal}
+                />
+                <BCard
+                  title={$ModalStore.title}
+                  animate
+                >
+                    <div
+                        class={$ModalStore.customClass}
+                        slot="content"
+                    >
+                        <svelte:component
+                            this={modalList.find(e => e.name === $ModalStore.type).component}
+                        />
+                    </div>
+                    <div class="actions" slot="actions">
+                        {#each $ModalStore.actions as action}
+                        <BButton
+                            full
+                            valid={action.type === btnType.valid}
+                            error={action.type === btnType.error}
+                            cancel={action.type === btnType.cancel}
+                            text={$_(`button.${action.label}`)}
+                            on:click={action.action}
+                        />
+                        {/each}
+                    </div>
+                </BCard>
+            </div>
         {/if}
     </section>
-
 </main>
 
 <style lang="scss">
     @import "./src/styles/_loader.scss";
+    .modal-loader-mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: $light;
+    }
     #modal-loader {
         position: absolute;
         top: 0;

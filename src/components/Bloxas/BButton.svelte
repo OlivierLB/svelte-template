@@ -8,7 +8,7 @@
     export let error :Boolean = false;
     export let cancel :Boolean = false;
     export let full :Boolean = false;
-    export let text :String;
+    export let text :String = '';
     export let icon :String = '';
 
     function click() {
@@ -30,7 +30,9 @@
                 name={icon}
             />
         {/if}
-        {text}
+        {#if text.length > 0}
+            {text}
+        {/if}
     </div>
 </main>
 <style lang="scss">
