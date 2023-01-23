@@ -5,7 +5,8 @@
     "button": "Boutons",
     "input": "Champs de saisie",
     "store": "Mise en place du store",
-    "modal": "Gestion des modals"
+    "modal": "Gestion des modals",
+    "service": "Appel API"
   },
   "text": {
     "home": {

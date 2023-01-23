@@ -29,55 +29,14 @@
     <section
         id="modal-loader"
         on:click={close}
-        in:fade={{duration: 300}}
-        out:fade={{duration: 300}}
         bind:clientWidth={width}
         bind:clientHeight={height}
     >
-        <p>{width} {height}</p>
         {#if $ModalStore.isOpen && width > 380}
-            <BCard
-              title={$ModalStore.title}
-              animate
-            >
-                <div
-                  class={$ModalStore.customClass}
-                  slot="content"
-                >
-                    <svelte:component
-                      this={modalList.find(e => e.name === $ModalStore.type).component}
-                    />
-                </div>
-                <div class="actions" slot="actions">
-                    {#each $ModalStore.actions as action}
-                        <BButton
-                          full
-                          valid={action.type === btnType.valid}
-                          error={action.type === btnType.error}
-                          cancel={action.type === btnType.cancel}
-                          text={$_(`button.${action.label}`)}
-                          on:click={action.action}
-                        />
-                    {/each}
-                </div>
-            </BCard>
-        {:else if $ModalStore.isOpen}
             <div
-                transition:fly="{{ y: height, duration: 500 }}"
-                class="modal-loader-mobile"
+              in:fade={{duration: 300}}
+              out:fade={{duration: 300}}
             >
-                <div
-                  class="btn-close"
-                >
-                    <div>
-                        <BButton
-                          icon="CrossIcon"
-                          error
-                          invisible
-                          on:click={closeModal}
-                        />
-                    </div>
-                </div>
                 <BCard
                   title={$ModalStore.title}
                   animate
@@ -104,6 +63,48 @@
                     </div>
                 </BCard>
             </div>
+        {:else if $ModalStore.isOpen}
+            <div
+                transition:fly="{{ y: height, duration: 500 }}"
+                class="modal-loader-mobile"
+            >
+                <div
+                  class="btn-close"
+                >
+                    <div>
+                        <BButton
+                          icon="CrossIcon"
+                          error
+                          invisible
+                          on:click={closeModal}
+                        />
+                    </div>
+                </div>
+                <BCard
+                  title={$ModalStore.title}
+                >
+                    <div
+                      class={$ModalStore.customClass}
+                      slot="content"
+                    >
+                        <svelte:component
+                          this={modalList.find(e => e.name === $ModalStore.type).component}
+                        />
+                    </div>
+                    <div class="actions mobile" slot="actions">
+                        {#each $ModalStore.actions as action}
+                            <BButton
+                              full
+                              valid={action.type === btnType.valid}
+                              error={action.type === btnType.error}
+                              cancel={action.type === btnType.cancel}
+                              text={$_(`button.${action.label}`)}
+                              on:click={action.action}
+                            />
+                        {/each}
+                    </div>
+                </BCard>
+            </div>
         {/if}
     </section>
 </main>
@@ -111,12 +112,13 @@
 <style lang="scss">
     @import "./src/styles/_loader.scss";
     .modal-loader-mobile {
-        position: absolute;
+        //position: absolute;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
         background-color: $light;
+        position: fixed;
         .btn-close {
             display: flex;
             flex-direction: row;
@@ -147,6 +149,10 @@
         justify-content: center;
         align-content: center;
         align-items: center;
+        &.mobile {
+            position: absolute;
+            bottom: 0;
+        }
     }
 
     .small {
