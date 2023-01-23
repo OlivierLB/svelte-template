@@ -32,7 +32,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     align-content: center;
-    width: calc(100% - 20px);
     overflow: hidden;
     &.animate {
       animation: gelatine $durationSmall $repeatSmall;

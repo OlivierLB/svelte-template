@@ -8,6 +8,7 @@
     export let error :Boolean = false;
     export let cancel :Boolean = false;
     export let full :Boolean = false;
+    export let invisible :Boolean = false;
     export let text :String = '';
     export let icon :String = '';
 
@@ -23,6 +24,7 @@
         class:error
         class:cancel
         class:full
+        class:invisible
         on:click={click}
     >
         {#if icon.length > 0}

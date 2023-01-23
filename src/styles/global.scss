@@ -56,6 +56,9 @@ font-size: $font-medium;
     &.full {
       @include buttonFull($error, 100%);
     }
+    &.invisible {
+      @include buttonInvisible($error)
+    }
   }
 
   &.cancel {

@@ -66,33 +66,40 @@
                 transition:fly="{{ y: height, duration: 500 }}"
                 class="modal-loader-mobile"
             >
-                <BButton
-                    icon="CrossIcon"
-                    error
-                    on:click={closeModal}
-                />
+                <div
+                  class="btn-close"
+                >
+                    <div>
+                        <BButton
+                          icon="CrossIcon"
+                          error
+                          invisible
+                          on:click={closeModal}
+                        />
+                    </div>
+                </div>
                 <BCard
                   title={$ModalStore.title}
                   animate
                 >
                     <div
-                        class={$ModalStore.customClass}
-                        slot="content"
+                      class={$ModalStore.customClass}
+                      slot="content"
                     >
                         <svelte:component
-                            this={modalList.find(e => e.name === $ModalStore.type).component}
+                          this={modalList.find(e => e.name === $ModalStore.type).component}
                         />
                     </div>
                     <div class="actions" slot="actions">
                         {#each $ModalStore.actions as action}
-                        <BButton
-                            full
-                            valid={action.type === btnType.valid}
-                            error={action.type === btnType.error}
-                            cancel={action.type === btnType.cancel}
-                            text={$_(`button.${action.label}`)}
-                            on:click={action.action}
-                        />
+                            <BButton
+                              full
+                              valid={action.type === btnType.valid}
+                              error={action.type === btnType.error}
+                              cancel={action.type === btnType.cancel}
+                              text={$_(`button.${action.label}`)}
+                              on:click={action.action}
+                            />
                         {/each}
                     </div>
                 </BCard>
@@ -110,6 +117,15 @@
         width: 100vw;
         height: 100vh;
         background-color: $light;
+        .btn-close {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-content: flex-end;
+            align-items: flex-end;
+            padding-right: $space-small;
+            padding-top: $space-small;
+        }
     }
     #modal-loader {
         position: absolute;

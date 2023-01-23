@@ -19,3 +19,11 @@
   border: unset;
   border-radius: unset;
 }
+
+@mixin buttonInvisible ($color) {
+  color: $color;
+  border: unset;
+  border-radius: unset;
+  width: min-content;
+  height: min-content;
+}
