@@ -32,18 +32,15 @@
   id="layout"
   bind:clientWidth={width}
   bind:clientHeight={height}
+  class="{($SettingsStore.width <= mobilWidth ? 'mobil' : 'normal')}"
 >
-  {#if $SettingsStore.width > mobilWidth}
-    <Header />
-  {/if}
+  
+  <Header />
   <div id="full-page">
     <Router />
   </div>
   {#if $ModalStore.isOpen}
     <Modal />
-  {/if}
-  {#if $SettingsStore.width <= mobilWidth}
-    <Header />
   {/if}
 </section>
 
@@ -61,11 +58,17 @@
     background-color: $light;
     color: $dark;
     display: flex;
-    flex-direction: column;
     #full-page {
       width: 100%;
       height: calc(100% - 50px);
       overflow: auto;
     }
+  }
+
+  .mobil {
+    flex-direction: column-reverse;
+  }
+  .normal {
+    flex-direction: column;
   }
 </style>
