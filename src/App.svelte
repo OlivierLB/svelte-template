@@ -1,9 +1,9 @@
 <script lang="ts">
 import Layout from "./layout/Layout.svelte";
+import { Router } from "svelte-navigator";
 
 import {
   register,
-  t,
   init,
   getLocaleFromNavigator,
   isLoading,
@@ -18,18 +18,12 @@ init({ initialLocale: getLocaleFromNavigator(), fallbackLocale: "fr" });
   {#if $isLoading}
     Please wait...
   {:else}
-    <Layout />
+    <Router>
+      <Layout />
+    </Router>
   {/if}
 </main>
 
 
 <style lang="scss">
-  @import "./styles/_loader.scss";
-  main {
-    margin: unset;
-    width: 100vw;
-    height: 100vh;
-    background-color: $light;
-    color: $dark;
-  }
 </style>

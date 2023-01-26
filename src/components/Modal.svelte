@@ -1,10 +1,12 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
     import ModalStore from "../store/modal";
+    import SettingsStore from "../store/settings";
     import BCard from "./Bloxas/BCard.svelte";
     import BButton from "./Bloxas/BButton.svelte";
     import {btnType} from "../utils/enums";
     import { _ } from 'svelte-i18n'
+    import {mobilWidth} from '../utils/const'
 
     const close = e => {
         if (e.target.id === 'modal-loader') {
@@ -20,19 +22,14 @@
     const modalList = [
         {name: 'example', component: ModalExample}
     ]
-
-    let width
-    let height
 </script>
 
 <main>
     <section
         id="modal-loader"
         on:click={close}
-        bind:clientWidth={width}
-        bind:clientHeight={height}
     >
-        {#if $ModalStore.isOpen && width > 380}
+        {#if $ModalStore.isOpen && $SettingsStore.width > mobilWidth}
             <div
               in:fade={{duration: 300}}
               out:fade={{duration: 300}}
@@ -65,7 +62,7 @@
             </div>
         {:else if $ModalStore.isOpen}
             <div
-                transition:fly="{{ y: height, duration: 500 }}"
+                transition:fly="{{ y: SettingsStore.height, duration: 500 }}"
                 class="modal-loader-mobile"
             >
                 <div
