@@ -10,18 +10,19 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@sveltejs/vite-plugin-svelte": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",
     "node-sass": "^8.0.0",
-    "svelte": "^3.54.0",
-    "svelte-check": "^2.10.0",
-    "svelte-preprocess": "^5.0.0",
+    "sass": "^1.58.0",
+    "svelte": "^3.55.1",
+    "svelte-check": "^3.0.3",
+    "svelte-preprocess": "^5.0.1",
     "svelte-uicons": "^0.0.7",
-    "tslib": "^2.4.1",
-    "typescript": "^4.9.3",
-    "vite": "^4.0.0"
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.0.4"
   },
   "dependencies": {
     "rollup-plugin-svelte": "^7.1.0",

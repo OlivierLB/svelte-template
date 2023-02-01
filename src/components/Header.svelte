@@ -46,7 +46,7 @@
     </div>
   {:else}
     <div class="links">
-      <div class="side start">
+      <div class="side center">
         <HeaderItem
           to="button"
           icon="BaseballAltIcon"
@@ -112,6 +112,9 @@
         }
         &.end {
           justify-content: flex-end;
+        }
+        &.center {
+          justify-content: space-around;
         }
       }
       .logo {
