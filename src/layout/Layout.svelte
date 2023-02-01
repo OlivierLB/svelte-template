@@ -37,7 +37,9 @@
   
   <Header />
   <div id="full-page">
-    <Router />
+    <div id="content">
+      <Router />
+    </div>
   </div>
   {#if $ModalStore.isOpen}
     <Modal />
@@ -59,9 +61,12 @@
     color: $dark;
     display: flex;
     #full-page {
-      width: 100%;
-      height: calc(100% - 50px);
+      width: 100vw;
+      height: calc(100vh - 50px);
       overflow: auto;
+      #content {
+        padding: $space-small;
+      }
     }
   }
 

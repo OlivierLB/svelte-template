@@ -6,3 +6,20 @@ $light: #F9F9F9;
 $valid: #19c8a6;
 $error: #AF0606;
 $cancel: #D8D8D8;
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  focus: $focus,
+  dark: $dark,
+  light: $light,
+  valid: $valid,
+  error: $error,
+  cancel: $cancel
+);
+
+:export {
+  @each $key, $value in $theme-colors {
+    #{$key}: #{$value};
+  }
+}

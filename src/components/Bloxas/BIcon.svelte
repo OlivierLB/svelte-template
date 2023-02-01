@@ -2,11 +2,15 @@
     import * as icons from 'svelte-uicons'
     export let name :String = '';
     export let size :String = '20';
+    export let color :string
 </script>
 
 <main>
-    <svelte:component
+    <div style="color: {color}">
+      <svelte:component
         this={icons[name]}
         size={size}
-    />
+      />
+    </div>
+    
 </main>

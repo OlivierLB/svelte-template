@@ -80,6 +80,7 @@
   @import "./src/styles/_loader.scss";
   .global {
     width: 100%;
+    display: flex;
     flex: 1 0 30%;
     .name {
       font-size: $font-medium;

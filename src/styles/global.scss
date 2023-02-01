@@ -4,7 +4,7 @@
 }
 h1 {
   font-size: $font-title;
-  margin: $space-big 0 $space-big 0;
+  margin: 0 0 $space-big 0;
   padding: unset;
   line-height: $line-title;
   color: $secondary;
@@ -14,7 +14,7 @@ h1 {
 }
 h2 {
   font-size: $font-big;
-  margin: $space-normal 0 $space-normal 0;
+  margin: 0 0 $space-normal 0;
   padding: unset;
   line-height: $line-title;
   color: $secondary;
